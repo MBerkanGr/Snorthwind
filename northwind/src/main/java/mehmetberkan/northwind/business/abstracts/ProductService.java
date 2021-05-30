@@ -18,11 +18,12 @@ public interface ProductService {
 	
 	DataResult<List<Product>> getByProductNameOrCategoryId(String productName , int categoryId);
 	
-	DataResult<List<Product>> getByCategoryIdIn(List<Integer> categoryies);
+	DataResult<List<Product>> getByCategoryIdIn(List<Integer> categories);
 	
 	DataResult<List<Product>> getByProductNameContains(String productName);
 	
 	DataResult<List<Product>> getByProductNameStartsWith(String productName);
 	
 	DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId);
+	
 }

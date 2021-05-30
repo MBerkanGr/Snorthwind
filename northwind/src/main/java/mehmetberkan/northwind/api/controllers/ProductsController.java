@@ -42,14 +42,34 @@ public class ProductsController {
 		return this.productService.getByProductName(productName);
 	}
 	
-	@GetMapping("/getByProductNameOrCategoryId")
+	@GetMapping("/getByProductNameAndCategoryId")
 	public DataResult<Product> getByProductNameAndCategorId(@RequestParam("productName") String productName, @RequestParam("categoryId") int categoryId){
 		return this.productService.getByProductNameAndCategoryId(productName, categoryId);
 	}
 	
+	@GetMapping("/getByProductNameOrCategoryId")
+	public DataResult<List<Product>> getByProductNameOrCategoryId(String productName , int categoryId){
+		return this.productService.getByProductNameOrCategoryId(productName, categoryId);
+	}
+	
+	@GetMapping("/getByCategoryIdIn")
+	public DataResult<List<Product>> getByCategoryIdIn(List<Integer> categoryies){
+		return this.productService.getByCategoryIdIn(categoryies);
+	}	
+	
 	@GetMapping("/getByProductNameContains")
 	public DataResult<List<Product>> getByProductNameContains(@RequestParam String productName){
 		return this.productService.getByProductNameContains(productName);
+	}
+	
+	@GetMapping("/getByProductNameStartsWith")
+	public DataResult<List<Product>> getByProductNameStartsWith(String productName){
+		return this.productService.getByProductNameStartsWith(productName);
+	}
+	
+	@GetMapping("/getByProductAndCategory")
+	public DataResult<List<Product>> getByProductAndCategory(String productName, int categoryId){
+		return this.productService.getByNameAndCategory(productName, categoryId);
 	}
 	
 	@GetMapping("/getAllByPage")
